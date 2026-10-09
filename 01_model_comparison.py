@@ -1,6 +1,10 @@
-"""[1단계] 모델 비교·입력 선정·구조 비교·15분 예측 → 보고서 제2장
-  표4(모델 비교), 표5(입력 선정), 표6(구조 비교), 표9(15분 예측), 그림16(구조도), 그림17, 그림19, 그림20
-  결과: outputs/results/ch2_main.json, outputs/results/ch2_predictions.csv, outputs/figures/*.png   (약 2분)
+"""모델 비교와 26개 입력 선정
+
+목적: 단순 기준·랜덤포레스트·단일 LightGBM·PeakSense를 비교하고, 입력과 모델 구조를 선택합니다.
+입력: 원본 CSV. 실행: python 01_model_comparison.py
+출력: outputs/results/ch2_main.json, ch2_predictions.csv 및 outputs/figures/fig16·17·19·20 그림.
+해석: 시간 최대수요 평가와 15분 앞 예측은 평가 기간·정답 단위가 다릅니다. docs/RESULTS.md 참고.
+상세: docs/FILE_GUIDE.md
 """
 import json
 import time
