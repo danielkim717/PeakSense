@@ -1,0 +1,150 @@
+{
+  "source_archive": "PeakSense_code.zip",
+  "source_archive_sha256": "e2b8070207e7d00a1588ca99bb597808afae4e47cd26167375fd31e4e35b9f32",
+  "algorithm_changes": false,
+  "files": [
+    {
+      "path": "01_model_comparison.py",
+      "bytes": 9370,
+      "sha256": "39b0662fbee419e58d6f06390d51047aea3c1a73a843d9a5f08e3d2f684d19f9"
+    },
+    {
+      "path": "02_robustness.py",
+      "bytes": 6377,
+      "sha256": "92d057e9f906b00d46baa31f57b956b294dcf6a0aaef7a812a3853b72214f99f"
+    },
+    {
+      "path": "03_gru_optional.py",
+      "bytes": 1592,
+      "sha256": "88500e4e861ddb25377b1023fa84eb4982ca364a44252cc5f94a86b20fb43200"
+    },
+    {
+      "path": "04_peak_factors.py",
+      "bytes": 16608,
+      "sha256": "e19d0d6b6fa27c202fb45adad86280acccee8a6c4243be21b239b265cc05555e"
+    },
+    {
+      "path": "05_train_final.py",
+      "bytes": 2031,
+      "sha256": "9ea8c3e0538376260b54bf1cd0bf0984aa61d8b77675469df9e308dadf4e23f9"
+    },
+    {
+      "path": "06_predict.py",
+      "bytes": 9430,
+      "sha256": "52d0e84874e47b7ecc6fbfd13dffb889b209b21104242757092bcdb01082033f"
+    },
+    {
+      "path": "07_schedule_optimizer.py",
+      "bytes": 7377,
+      "sha256": "d543589211c214701f04fd7f5580044311a74fdbd1727a679b2edac65eece567"
+    },
+    {
+      "path": "08_model_extensions.py",
+      "bytes": 9610,
+      "sha256": "09523f818c6bfbe1ac77cf8482c896283a47f7b5f01690fdc8984739e014bff9"
+    },
+    {
+      "path": "09_tomorrow_preview.py",
+      "bytes": 7905,
+      "sha256": "f29f58ee58297911fe9b5352ddaf2dc1320a2771b41253e4a1cfd265747afa7c"
+    },
+    {
+      "path": "plan_template.csv",
+      "bytes": 1048,
+      "sha256": "9c22c5a746e486fe6b1dc4c7c452afc41d1f77fd59bcbeec0d6b5a26f8cb9004"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 149,
+      "sha256": "32552d4c67c8f8d69c9f61cf64a44637cdd2b5e7cae89a46fb04fcd5933b3fb4"
+    },
+    {
+      "path": "results/competition/ch2_gru.json",
+      "bytes": 883,
+      "sha256": "2f90730eedb262e744cfa7a9d1402d3f39358dab3a254732da4091a87cf64b1d"
+    },
+    {
+      "path": "results/competition/ch2_main.json",
+      "bytes": 5647,
+      "sha256": "978c4888a22b4b6c3ebd262a0806916cd88ebacb625669dac7bbd65807f123ac"
+    },
+    {
+      "path": "results/competition/ch2_robustness.json",
+      "bytes": 2689,
+      "sha256": "6623edd8c6b498528bba2bdbbaa0afde531c2a1aa2efb0f2d1a4141786c4f568"
+    },
+    {
+      "path": "results/competition/ch3.json",
+      "bytes": 9757,
+      "sha256": "b3965b33fe9b18b5f8edab887430eb7e772c5b22f85d0e03cf718d26a67759f3"
+    },
+    {
+      "path": "results/competition/ext_model.json",
+      "bytes": 4434,
+      "sha256": "742a42b096562a4fd0231135497cebf51663b4e45e69831dde603f3aeeaee09e"
+    },
+    {
+      "path": "results/competition/ext_schedule.json",
+      "bytes": 1484,
+      "sha256": "c0214fb091ad30ac877f46b4d3f7b0443c8ff56c2119c8d277a9cb6392ec13c3"
+    },
+    {
+      "path": "run_all.bat",
+      "bytes": 607,
+      "sha256": "919bee201b488c18e7f8e7aee8f5b160314a5d7aa1a75818da3dd6ed8ad49567"
+    },
+    {
+      "path": "run_all.sh",
+      "bytes": 507,
+      "sha256": "1a9dbc3841408230b7605f7ef34ea2c29fb4a4fc23d3b2548593503b6d9e6f83"
+    },
+    {
+      "path": "src/__init__.py",
+      "bytes": 98,
+      "sha256": "c81f402d0b03770975c67fd3e5ada59c3b9cd34cb3e39de04d068e5a4935241b"
+    },
+    {
+      "path": "src/config.py",
+      "bytes": 1984,
+      "sha256": "3c3f1453d2bb5aa53e11b3eb6bd41036a1e6a11dae6508895de958b619085806"
+    },
+    {
+      "path": "src/evaluate.py",
+      "bytes": 2377,
+      "sha256": "aea4e862596cffbf4392b16dd8cac6d2dd262a65433472483a65124f703d2fc3"
+    },
+    {
+      "path": "src/features.py",
+      "bytes": 4483,
+      "sha256": "1ede2991ed8b8f9ffdb3756f80c1ac6d61359dc0bed1ba8e73e21ae7919c0928"
+    },
+    {
+      "path": "src/forecast15.py",
+      "bytes": 3469,
+      "sha256": "88fbd3bf3d2fbc9d67d613a5ade419d3f754beec4d02b023e3632afde5bb5604"
+    },
+    {
+      "path": "src/models.py",
+      "bytes": 6420,
+      "sha256": "4c2542f325169bb2796c570ee9f07ee955bab911c0960a719ac0b58ac9841641"
+    },
+    {
+      "path": "src/preprocess.py",
+      "bytes": 2521,
+      "sha256": "35c8a50ef373d0688e4af2ae46a2165a6c686de64d24f53f96b61f5973d31dd1"
+    },
+    {
+      "path": "src/scheduler.py",
+      "bytes": 5498,
+      "sha256": "70de6f7bc48fdf25944cf25d1ecd28aa8417b3327f6106789d86579e75a4dd64"
+    }
+  ],
+  "reference_presentation": {
+    "filename": "KAMP 공모전 발표자료.pdf",
+    "pages": 30,
+    "sha256": "850a7785935e3fe2dad6d34760fc5992fa14fdabdd10bd4772ae91234084a5c7",
+    "uploaded": false
+  },
+  "report_uploaded": false,
+  "hash_scope": "SHA-256 of supplied files copied locally before Git line-ending normalization. Git may normalize CRLF/LF without changing algorithm content."
+}

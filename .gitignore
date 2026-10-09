@@ -1,0 +1,45 @@
+# 원본/전처리 데이터는 KAMP에서 직접 내려받습니다.
+/data/*
+!/data/README.md
+*.csv
+!/plan_template.csv
+*.parquet
+*.feather
+*.xlsx
+
+# 실행 결과와 학습 모델 (제출 당시 집계 결과는 results/competition/에 별도 보존)
+/outputs/
+/models/
+*.joblib
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.zip
+
+# 환경·인증정보·캐시
+.env
+.env.*
+*.pem
+*.key
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+~$*
+
+# 원본 발표자료와 보고서는 업로드하지 않습니다.
+*.pdf
+*.pptx
+*.hwpx
+*.hwp
+*.docx
