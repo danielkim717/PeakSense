@@ -146,5 +146,10 @@
     "uploaded": false
   },
   "report_uploaded": false,
-  "hash_scope": "SHA-256 of supplied files copied locally before Git line-ending normalization. Git may normalize CRLF/LF without changing algorithm content."
+  "hash_scope": "SHA-256 of supplied files copied locally before Git line-ending normalization. Git may normalize CRLF/LF without changing algorithm content.",
+  "documentation_update": {
+    "date": "2026-10-09",
+    "changes": "File guides, module docstrings and comments; runtime algorithm preserved.",
+    "hash_note": "The files list records supplied source files before documentation edits and Git line-ending normalization; it is not a checksum list for the current working tree."
+  }
 }
