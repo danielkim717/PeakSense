@@ -1,4 +1,10 @@
-"""데이터 불러오기와 전처리 (보고서 제1장의 전처리와 동일)"""
+"""원본 CSV 읽기와 전처리
+
+역할: 잘못된 시간과 공장인원 결측 행을 제외하고, 기상 결측을 보완하며 peak와 peak_q를 만듭니다.
+입력과 호출: data/의 원본 CSV를 우선 검색합니다. 대표 함수: load_data().
+출력과 범위: 한 시간 간격 DataFrame을 반환합니다. 삭제한 65시간은 NaN으로 남으며 유효 전력은 6,103시간입니다.
+상세: src/README.md 및 docs/FILE_GUIDE.md
+"""
 from pathlib import Path
 
 import pandas as pd
