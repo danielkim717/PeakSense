@@ -4,7 +4,19 @@
 
 제6회 K-인공지능 제조데이터 분석 경진대회에서 진행한 **「제조 생산데이터 기반 전력사용량 예측 및 최대피크 위험조건 분석」** 프로젝트입니다. KAMP의 자원 최적화 AI 데이터셋을 사용해 데이터 진단, 예측모델 설계, 오류분석, 생산일정 활용까지 연결했습니다.
 
-[프로젝트 진행 내용](docs/PROJECT_OVERVIEW.md) · [분석 결과와 운영 활용](docs/ANALYSIS_AND_APPLICATION.md) · [실험 결과](docs/RESULTS.md) · [실행 안내](docs/REPRODUCING.md) · [검증 범위와 개선 과제](docs/LIMITATIONS.md)
+[파일별 역할 안내](docs/FILE_GUIDE.md) · [프로젝트 진행 내용](docs/PROJECT_OVERVIEW.md) · [분석 결과와 운영 활용](docs/ANALYSIS_AND_APPLICATION.md) · [실험 결과](docs/RESULTS.md) · [실행 안내](docs/REPRODUCING.md) · [검증 범위와 개선 과제](docs/LIMITATIONS.md)
+
+## 처음 방문했다면
+
+| 알고 싶은 내용 | 바로 보기 |
+|---|---|
+| 무슨 프로젝트인가요? | [문제 정의와 진행 과정](docs/PROJECT_OVERVIEW.md) |
+| 각 파일은 무슨 역할인가요? | [전체 파일 설명](docs/FILE_GUIDE.md) |
+| 데이터는 어떻게 처리하고 무엇을 예측하나요? | [데이터 전처리](docs/DATA.md) · [입력 26개와 모델 구조](docs/MODEL.md) |
+| 얼마나 잘 예측했나요? | [동일 조건 모델 비교와 결과](docs/RESULTS.md) |
+| 직접 실행하거나 계획을 넣고 싶어요 | [실행 순서](docs/REPRODUCING.md) · [계획 CSV 작성법](docs/PLAN_INPUT.md) |
+
+**한눈에 보기:** 제조공장 1곳의 유효 자료 **6,103시간** → 생산계획·달력·기상 **26개 입력** → 부하 상태를 나누는 **LightGBM 모델** → 시간 최대수요 예측 → 피크 조건 분석과 일정 후보 비교.
 
 ## 어떤 문제를 풀었나요?
 
@@ -92,25 +104,33 @@ python 06_predict.py --start "2021-09-15 00:00" --end "2021-09-15 23:45" --plan 
 
 `plan_template.csv`는 형식 확인용 예시 계획입니다. 실제 사용 시 생산계획과 기상예보로 교체해야 합니다. GRU는 별도로 PyTorch 설치가 필요합니다. 한글 그래프의 기본 글꼴은 Windows의 맑은 고딕입니다. [단계별 실행과 재현 조건](docs/REPRODUCING.md)
 
-## 저장소 구성
+## 어떤 파일부터 보면 되나요?
 
-```text
-PeakSense/
-├── 01_model_comparison.py      # 기준 모델·입력·구조·15분 예측 비교
-├── 02_robustness.py            # 주별 성능·민감도·예측구간 분석
-├── 03_gru_optional.py          # 선택: GRU와 공통 시간 비교
-├── 04_peak_factors.py          # 피크 조건·SHAP·오류 분석
-├── 05_train_final.py           # 전체 유효 자료로 모델 학습·저장
-├── 06_predict.py               # 지정 시간구간 예측
-├── 07_schedule_optimizer.py    # 생산일정 후보 탐색 실험
-├── 08_model_extensions.py      # 개선모델·예측구간 확장 실험
-├── 09_tomorrow_preview.py      # 다음 날 피크 미리보기
-├── src/                       # 전처리·특성·모델·평가·일정 코드
-├── data/README.md             # 데이터 준비 안내
-├── results/competition/       # 제출 당시 집계 결과 JSON
-├── docs/                      # 프로젝트 설명·분석·모델·검증 문서와 그래프
-└── plan_template.csv          # 미래 계획 입력 양식
-```
+번호가 붙은 Python 파일은 실행용이고, `src/`는 이 파일들이 함께 사용하는 함수와 모델입니다.
+
+| 파일 | 하는 일 | 확인할 결과 |
+|---|---|---|
+| [01_model_comparison.py](01_model_comparison.py) | 모델 비교와 26개 입력 선정 | 모델·입력·구조별 성능 비교 |
+| [02_robustness.py](02_robustness.py) | 주별 안정성과 기준값 민감도 평가 | 주별 오차와 기준값 민감도 |
+| [03_gru_optional.py](03_gru_optional.py) | GRU와 기존 모델의 공통 표본 비교 | 공통 1,728시간 GRU 비교 |
+| [04_peak_factors.py](04_peak_factors.py) | 피크 발생 조건과 예측오차 분석 | 피크 조건과 SHAP 기여 |
+| [05_train_final.py](05_train_final.py) | 전체 유효 자료로 최종 모델 학습과 저장 | 학습 모델과 모델 설명 JSON |
+| [06_predict.py](06_predict.py) | 사용자가 지정한 미래 구간의 전력 예측 | 지정 구간 예측 CSV·그림 |
+| [07_schedule_optimizer.py](07_schedule_optimizer.py) | 생산목표를 유지하는 일정 후보 탐색 | 계획 변경 전후 예상 피크 |
+| [08_model_extensions.py](08_model_extensions.py) | PeakSense 추가 특성과 피크 가중 학습 실험 | 추가 모델·예측구간 비교 |
+| [09_tomorrow_preview.py](09_tomorrow_preview.py) | 다음 날 피크와 생산계획을 한 화면으로 표시 | 위험시간·계획을 묶은 미리보기 |
+
+| 폴더와 보조 파일 | 담고 있는 내용 |
+|---|---|
+| [src/](src/README.md) | 전처리·입력 생성·모델·평가·15분 예측·일정 탐색의 공통 코드 |
+| [docs/](docs/README.md) | 프로젝트 과정, 데이터, 모델, 성능, 운영 활용, 실행 방법 |
+| [results/competition/](results/competition/README.md) | 제출 당시 실험 결과를 보존한 JSON 6개 |
+| [data/](data/README.md) | 사용자가 직접 준비할 원본 데이터의 위치와 형식 |
+| [plan_template.csv](plan_template.csv) | 미래 생산계획·기상 입력 예시. [열별 설명](docs/PLAN_INPUT.md) |
+| [requirements.txt](requirements.txt) | 설치할 Python 패키지 목록 |
+| [run_all.bat](run_all.bat) / [run_all.sh](run_all.sh) | Windows / macOS·Linux 일괄 실행 순서 |
+
+공통 모듈의 함수, 결과 JSON의 의미, 각 그래프와 설정 파일까지 [전체 파일 안내](docs/FILE_GUIDE.md)에 정리했습니다.
 
 ## 분석에서 운영 활용까지
 
