@@ -1,4 +1,10 @@
-"""모델 정의: 제안 모델 PeakSense와 비교 모델 (보고서 제2장)"""
+"""PeakSense와 비교 모델 정의
+
+역할: 상태 분류기와 두 회귀기를 결합한 PeakSense, 단일 LightGBM, 랜덤포레스트, 선택 GRU를 정의합니다.
+입력과 호출: 입력 X와 학습 정답 y. fit(), predict(), predict_parts()로 사용합니다.
+출력과 범위: 시간별 전력 예측과 높은 부하 확률을 반환합니다. save()/load()는 모델 보관용이며 상태 라벨은 실제 설비 센서값이 아닙니다.
+상세: src/README.md 및 docs/FILE_GUIDE.md
+"""
 import lightgbm as lgb
 import numpy as np
 import pandas as pd
