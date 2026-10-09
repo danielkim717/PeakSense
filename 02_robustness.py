@@ -1,7 +1,10 @@
-"""[2단계] 안정성·민감도·예측구간·경보 → 보고서 제2장
-  그림18(주별 MAE), 윌콕슨 검정, 표7(판별 혼동행렬은 1단계 결과 사용), 표8(기준값·라벨 민감도),
-  예측구간 적중률, 고전력 경보, 한 번 학습한 경우, 실행 시간
-  선행: 01_model_comparison.py   결과: outputs/results/ch2_robustness.json   (약 3분)
+"""주별 안정성과 기준값 민감도 평가
+
+목적: 주별·일별 성능 차이, 상태 기준 변경, 예측구간과 고전력 경보를 살펴봅니다.
+입력: 원본 CSV와 01_model_comparison.py의 ch2_predictions.csv. 실행: python 02_robustness.py
+출력: outputs/results/ch2_robustness.json 및 outputs/figures/fig18_weekly_mae.png.
+해석: 잔차를 이용한 예측구간·경보에는 시간 경계 재검증이 필요합니다. docs/LIMITATIONS.md 참고.
+상세: docs/FILE_GUIDE.md
 """
 import json
 import time
