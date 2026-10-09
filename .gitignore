@@ -1,3 +1,4 @@
+# 역할: 데이터·모델·개인 환경·발표 원본의 공개 제외 목록. 파일 안내: docs/FILE_GUIDE.md
 # 원본/전처리 데이터는 KAMP에서 직접 내려받습니다.
 /data/*
 !/data/README.md
