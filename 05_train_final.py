@@ -1,10 +1,10 @@
-"""[5단계] 최종 모델 학습·저장 — 전체 분석 자료(6,103시간)로 PeakSense를 학습해 저장
-  결과: models/peaksense.joblib, models/model_card.json   (약 5초)
+"""전체 유효 자료로 최종 모델 학습과 저장
 
-  저장 모델 사용 예:
-    from src.models import PeakSense
-    m = PeakSense.load("models/peaksense.joblib")
-    p_run, pred = m.predict_parts(X[features])   # 가동 확률, 시간 최대수요 예측
+목적: 유효 전력 기록 전체와 26개 입력으로 PeakSense를 학습하고 다시 불러올 수 있게 저장합니다.
+입력: 원본 CSV. 실행: python 05_train_final.py. 01 결과가 있으면 모델 설명에 기존 평가 지표도 기록합니다.
+출력: models/peaksense.joblib 및 models/model_card.json.
+해석: 전체 자료로 학습한 모델이므로 과거 테스트 구간의 성능 평가용으로 사용하지 않습니다.
+상세: docs/FILE_GUIDE.md
 """
 import json
 import warnings
