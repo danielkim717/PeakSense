@@ -1,12 +1,10 @@
-"""[6단계] 지정 구간 전력사용량 예측 → 보고서 제2장 표10, 과제의 '향후 지정된 시간구간' 예측
+"""사용자가 지정한 미래 구간의 전력 예측
 
-  python 06_predict.py --start "2021-09-08 00:00" --end "2021-09-14 23:45"            (데이터 기간 안: 실측과 비교)
-  python 06_predict.py --start "2021-09-15 00:00" --end "2021-09-15 23:45" --plan plan_template.csv  (데이터 이후)
-
-  예측 시작일 전날 12시까지의 자료로 PeakSense를 학습하고(시간 최대수요용·15분용),
-  15분 예측·90% 예측구간·고전력(≥187) 확률·구간 총 사용량을 출력한다.
-  계획 파일(시간 단위 CSV) 컬럼: 일시, 생산량, 기온, 풍속, 습도, 강수량, 인건비
-  결과: outputs/forecast_<시작>_<끝>.csv / .png
+목적: 시작·종료 시각과 계획을 받아 시간 최대수요, 15분 전력, 잔차 기반 예측구간을 계산합니다.
+입력: 원본 CSV와 데이터 이후 구간의 계획 CSV. 예: python 06_predict.py --start "2021-09-15 00:00" --end "2021-09-15 23:45" --plan plan_template.csv
+출력: outputs/forecast_<시작>_<끝>.csv 및 .png.
+해석: 05의 저장 모델을 읽지 않고 예측 시점 이전 자료로 자체 학습합니다. 입력 양식은 docs/PLAN_INPUT.md 참고. 전력 합을 kWh로 단정하지 않습니다.
+상세: docs/FILE_GUIDE.md
 """
 import argparse
 import warnings
