@@ -22,10 +22,10 @@ python -m pip install -r requirements.txt
 | `python 01_model_comparison.py` | 기준 모델·입력·구조·15분 예측 비교 | 원본 데이터 |
 | `python 02_robustness.py` | 주별 성능·민감도·예측구간·경보 분석 | 01 결과 |
 | `python 03_gru_optional.py` | GRU 공통 표본 비교(선택) | 01 결과, PyTorch |
-| `python 04_peak_factors.py` | 피크 조건·오류·SHAP 분석 | 01 결과 |
+| `python 04_peak_factors.py` | 피크 조건·오류·SHAP 분석 | 원본 데이터(자체 학습) |
 | `python 05_train_final.py` | 전체 유효 자료로 모델 학습·저장 | 원본 데이터 |
 | `python 07_schedule_optimizer.py` | 일정 후보 탐색 실험 | 원본 데이터 |
-| `python 08_model_extensions.py` | 개선모델·예측구간 후속 실험 | 01 결과 |
+| `python 08_model_extensions.py` | 개선모델·예측구간 후속 실험 | 원본 데이터(기본 비교는 01 참고) |
 | `python 09_tomorrow_preview.py --day 2021-07-19` | 피크 미리보기 | 원본 데이터 |
 
 GRU는 `python -m pip install torch`로 PyTorch를 추가 설치합니다. 일괄 실행은 Windows의 `run_all.bat` 또는 `bash run_all.sh`를 사용합니다. 일괄 실행에는 [검증 과제](LIMITATIONS.md)가 남은 확장 실험도 포함되며 GRU는 포함되지 않습니다.
@@ -60,6 +60,9 @@ python 06_predict.py --start "2021-09-15 00:00" --end "2021-09-15 23:45" --plan 
 
 ## 현재 확인한 범위
 
-코드 출처는 사용자가 최종 버전으로 제공한 `PeakSense_code.zip`입니다. 원래의 9개 실행 스크립트, `src/`, 실행 설정을 보존했으며 알고리즘 수정이나 재학습은 수행하지 않았습니다. 공개 준비 과정에서 문서·폴더 구성과 `.gitignore`를 추가했습니다. 최종 발표자료의 통합 엔진은 현재 제공 코드에 대응 구현이 없어 재현 범위에 포함하지 않습니다.
+코드 출처는 사용자가 최종 버전으로 제공한 `PeakSense_code.zip`입니다. 원래의 9개 실행 스크립트, `src/`, 실행 설정을 보존했으며 알고리즘 수정이나 재학습은 수행하지 않았습니다. 공개 준비 과정에서 문서·폴더 구성과 `.gitignore`를 추가했습니다. 후속 문서 보완에서는 파일별 설명·주석을 추가했으며 학습·예측 계산은 유지했습니다. 최종 발표자료의 통합 엔진은 현재 제공 코드에 대응 구현이 없어 재현 범위에 포함하지 않습니다.
 
 Python 구문 검사, 원본 자료로 전처리·입력 생성 결과 확인, 저장 예측값에서 주요 MAE 재계산, 공개 대상 파일 점검을 수행합니다. 실제 확인 결과는 [`PUBLICATION_CHECKS.md`](PUBLICATION_CHECKS.md)에 기록합니다. 출처별 해시는 [`SOURCE_MANIFEST.json`](SOURCE_MANIFEST.json)에 있습니다.
+
+
+[파일별 역할](FILE_GUIDE.md) · [계획 양식의 열별 설명](PLAN_INPUT.md)
