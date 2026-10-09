@@ -1,10 +1,10 @@
-"""[9단계, 확장] 내일 피크 미리보기 — 전날 12시에 생산관리 담당자가 받는 한 장짜리 화면
-  python 09_tomorrow_preview.py --day 2021-07-19
-  (데이터 이후 날짜는 --plan plan_template.csv 형식의 생산계획·기상예보 파일 필요)
+"""다음 날 피크와 생산계획을 한 화면으로 표시
 
-  구성: (가) 15분 예측과 90% 예측구간, (나) 시간별 고전력 확률과 점검 우선순위(제4장 기준),
-        (다) 생산일정 최적화 권고(하루 생산량 유지, 앞뒤 2시간 안에서 배분 조정), (라) 점검 목록
-  결과: outputs/preview_<날짜>.png, outputs/preview_<날짜>.csv
+목적: 15분 예측, 위험시간, 점검 우선순위, 생산일정 후보를 한 장의 그림으로 묶습니다.
+입력: 원본 CSV, 대상 날짜, 필요 시 미래 계획. 예: python 09_tomorrow_preview.py --day 2021-09-15 --plan plan_template.csv
+출력: outputs/preview_<날짜>.png 및 .csv.
+해석: 06의 예측 함수와 src/scheduler.py를 재사용합니다. 실제 설비를 제어하는 앱이나 웹 서비스는 아닙니다.
+상세: docs/FILE_GUIDE.md
 """
 import argparse
 import importlib
