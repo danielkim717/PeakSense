@@ -1,5 +1,10 @@
-"""[3단계, 선택] 딥러닝 GRU를 같은 조건으로 평가 → 보고서 제2장 표4의 ⑥ 행
-  PyTorch 필요(pip install torch). CPU 기준 약 30분.  결과: outputs/results/ch2_gru.json
+"""GRU와 기존 모델의 공통 표본 비교
+
+목적: 하루 단위 GRU를 학습하고, 예측 가능한 같은 시간만 골라 기존 모델과 비교합니다.
+입력: 원본 CSV, 01의 ch2_predictions.csv, 별도 PyTorch 설치. 실행: python 03_gru_optional.py
+출력: outputs/results/ch2_gru.json. 제출 당시 공통 평가 표본은 1,728시간입니다.
+해석: 기본 평가 1,759시간의 점수와 직접 섞지 않습니다. 선택 실행이며 run_all에는 포함되지 않습니다.
+상세: docs/FILE_GUIDE.md
 """
 import json
 import time
