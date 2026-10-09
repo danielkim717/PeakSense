@@ -1,4 +1,10 @@
-"""평가: 시간 순서 분할(walk-forward)과 지표 (보고서 제2장 '학습 데이터와 테스트 데이터의 분리')"""
+"""시간 순서를 지키는 모델 평가
+
+역할: 과거 자료로 학습하고 이후 기간을 평가하는 주별 분할과 MAE·RMSE·일 최대 MAE를 계산합니다.
+입력과 호출: X, y, 유효 행 마스크, 비교할 모델 목록. weekly_folds(), walk_forward(), score().
+출력과 범위: 시각별 예측 DataFrame과 지표 dict를 반환합니다. 현재 주별 학습 경계는 index < issue이며 ISSUE_HOUR=11입니다.
+상세: src/README.md 및 docs/FILE_GUIDE.md
+"""
 import numpy as np
 import pandas as pd
 
@@ -18,7 +24,8 @@ def score(y, p) -> dict:
 
 def weekly_folds(start=EVAL_START, end=EVAL_END, step=STEP_DAYS):
     """(예측 구간 시작, 끝, 학습 마감 시각)을 차례로 돌려준다.
-    학습 마감 = 예측 구간 첫날의 전날 12시(11시 관측까지). 실제 운영에서 매주 지난주 자료를 더해 재학습하는 절차를 가정."""
+    학습 경계 issue = 예측 구간 첫날의 전날 ISSUE_HOUR시.
+    index < issue 조건이므로 기본값 11에서는 전날 10시 행까지 포함한다."""
     t, E = pd.Timestamp(start), pd.Timestamp(end) + pd.Timedelta(hours=23)
     while t <= E:
         t_end = min(t + pd.Timedelta(days=step) - pd.Timedelta(hours=1), E)
