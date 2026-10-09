@@ -1,3 +1,4 @@
+# 역할: 텍스트 줄바꿈과 바이너리 처리 규칙을 통일합니다.
 * text=auto
 *.py text eol=lf
 *.md text eol=lf
