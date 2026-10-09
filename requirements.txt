@@ -1,3 +1,5 @@
+# 역할: 기본 분석·학습·그래프 생성 패키지. 설치: python -m pip install -r requirements.txt
+# GRU를 실행할 때만 PyTorch를 별도 설치합니다.
 pandas>=2.2
 numpy>=1.26
 scipy>=1.12
