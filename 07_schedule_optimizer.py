@@ -1,8 +1,10 @@
-"""[7단계, 확장] 생산일정 최적화 — 하루 목표 생산량을 유지하며 시간별 생산량 배분을 조정해 예측 일 최대수요를 낮춤
-  PeakSense를 전력 시뮬레이터로 사용(src/scheduler.py). 테스트 기간 생산일마다 그 주의 walk-forward 모델로 평가.
-  결과: outputs/results/ext_schedule.json, ext_schedule_days.csv, figures/fig_ext_schedule.png   (약 15~25분)
+"""생산목표를 유지하는 일정 후보 탐색
 
-  특정 날짜 한 번 실행: python 07_schedule_optimizer.py --day 2021-09-08 --shift 2
+목적: 시간별 생산량을 재배분하고 모델이 예상하는 피크를 비교하는 국소 탐색 실험입니다.
+입력: 원본 CSV. 예: python 07_schedule_optimizer.py --day 2021-09-08 --shift 2
+출력: outputs/results/ext_schedule.json, ext_schedule_days.csv 및 outputs/figures/fig_ext_schedule.png.
+해석: 전역 최적해나 현장 저감 실적이 아닙니다. 목적함수 정규화와 누적 이동 제약은 docs/LIMITATIONS.md 참고.
+상세: docs/FILE_GUIDE.md
 """
 import argparse
 import json
